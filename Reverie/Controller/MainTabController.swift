@@ -83,7 +83,7 @@ class MainTabController: UITabBarController {
         let imageSelector = templateNavigationController(
             unselectedImage: UIImage(systemName: "pencil.and.outline")!,
             seletedImage: UIImage(systemName: "pencil.and.outline")!,
-            rootViewController: ImageSelectorController()
+            rootViewController: UploadThinkController()
         )
         
         let nofitications = templateNavigationController(
@@ -137,7 +137,7 @@ class MainTabController: UITabBarController {
                 guard let selectedImage = items.singlePhoto?.image else { return }
                 
                 let controller = UploadThinkController()
-                controller.selectedImage = selectedImage
+//                controller.selectedImage = selectedImage
                 controller.delegate = self
                 
                 let nav = UINavigationController(rootViewController: controller)
@@ -163,30 +163,31 @@ extension MainTabController: AuthenticationDelegate {
 
 extension MainTabController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        let index = viewControllers?.firstIndex(of: viewController)
-        
-        if index == 2 {
-            var config = YPImagePickerConfiguration()
-            
-            config.isScrollToChangeModesEnabled = true
-            config.showsPhotoFilters = true
-            config.showsVideoTrimmer = true
-            config.albumName = "DefaultYPImagePickerAlbumName"
-            config.screens = [.library]
-            config.targetImageSize = YPImageSize.original
-            config.overlayView = UIView()
-            config.hidesStatusBar = true
-            config.hidesBottomBar = false
-            config.hidesCancelButton = false
-            config.preferredStatusBarStyle = UIStatusBarStyle.default
-            
-            let picker = YPImagePicker(configuration: config)
-            picker.modalPresentationStyle = .fullScreen
-            present(picker, animated: true)
-            
-            didFinishPickingMedia(picker)
-        }
-        
+//        let index = viewControllers?.firstIndex(of: viewController)
+//
+//        if index == 2 {
+//            var config = YPImagePickerConfiguration()
+//
+//            config.isScrollToChangeModesEnabled = true
+//            config.showsPhotoFilters = true
+//            config.showsVideoTrimmer = true
+//            config.albumName = "DefaultYPImagePickerAlbumName"
+//            config.screens = [.library]
+//            config.targetImageSize = YPImageSize.original
+//            config.overlayView = UIView()
+//            config.hidesStatusBar = true
+//            config.hidesBottomBar = false
+//            config.hidesCancelButton = false
+//            config.preferredStatusBarStyle = UIStatusBarStyle.default
+//
+//            let picker = YPImagePicker(configuration: config)
+//            picker.modalPresentationStyle = .fullScreen
+//            present(picker, animated: true)
+//
+//            didFinishPickingMedia(picker)
+//        }
+//
+//        return true
         return true
     }
 }

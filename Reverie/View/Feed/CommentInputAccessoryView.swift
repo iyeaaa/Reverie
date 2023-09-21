@@ -19,9 +19,9 @@ class CommentInputAccessoryView: UIView {
     
     weak var delegate: CommentInputAccessoryViewDelegate?
     
-    private lazy var commentTextView: InputTextView = {
-        let tv = InputTextView()
-        tv.placeholderText = "Enter comment.."
+    private lazy var commentTextView: UITextViewWithPlaceHolder = {
+        let tv = UITextViewWithPlaceHolder()
+        
         tv.font = .systemFont(ofSize: 15)
         tv.isScrollEnabled = false // false면 textView의 크기를 따로 지정하지 않았을 때 커서의 크기로 textView의 height가 자동지정된다.
         return tv
