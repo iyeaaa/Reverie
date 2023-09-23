@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 protocol UploadThinkControllerDelegate: AnyObject {
-    func contollerDidFinishuploadingThink(_ contoller: UploadThinkController)
+    func uploadThinkContollerDidDismissed(_ uploadThinkController: UploadThinkController)
 }
 
 class UploadThinkController: UIViewController {
@@ -18,11 +18,10 @@ class UploadThinkController: UIViewController {
     
     weak var delegate: UploadThinkControllerDelegate?
     
-    private lazy var titleTextView = UITextViewWithPlaceHolder().then {
+    private lazy var titleTextView = UITextField().then {
         $0.placeholder = "Title"
-        $0.contentInset.left = -4
-//        $0.setPlaceholderColor(.lightGray)
-        $0.font = .panton(size: 24, bold: .semibold)
+        $0.setPlaceholderColor(.lightGray)
+        $0.font = .roboto(size: 24, bold: .semibold)
         $0.tintColor = .reverie(2)
     }
     
@@ -31,7 +30,7 @@ class UploadThinkController: UIViewController {
     }
     
     private lazy var captionTextView = UITextViewWithPlaceHolder().then {
-        $0.font = .panton(size: 20, bold: .semibold)
+        $0.font = .roboto(size: 20, bold: .semibold)
         $0.contentInset.left = -4
         $0.placeholder = "Caption"
         $0.tintColor = .reverie(2)
@@ -49,16 +48,17 @@ class UploadThinkController: UIViewController {
     
     func configure() {
         view.backgroundColor = .white
-        navigationItem.title = "Upload Think"
+        navigationItem.title = "Write Thinking"
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapCancel))
+        navigationItem.leftBarButtonItem?.tintColor = .reverie(2)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Share", style: .done, target: self, action: #selector(didTapDone))
+        navigationItem.rightBarButtonItem?.tintColor = .reverie(2)
     }
     
     func configureAutoLayout() {
         view.addSubview(titleTextView)
         titleTextView.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(15)
-            make.height.equalTo(calculateTextViewHeight())
         }
         
         view.addSubview(separator)
@@ -76,19 +76,12 @@ class UploadThinkController: UIViewController {
         }
     }
     
-    // MARK: - Helpers
-    
-    func calculateTextViewHeight() -> CGFloat {
-        return UILabel().then {
-            $0.text = "Enter title.."
-            $0.font = .panton(size: 24, bold: .semibold)
-        }.intrinsicContentSize.height + 10
-    }
-    
     // MARK: - Actions
     
     @objc func didTapCancel() {
-        dismiss(animated: true)
+        dismiss(animated: true) {
+            self.delegate?.uploadThinkContollerDidDismissed(self)
+        }
     }
     
     @objc func didTapDone() {

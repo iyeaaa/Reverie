@@ -15,7 +15,7 @@ class CategoryCell: UICollectionViewCell {
     }
     
     private var titleLabel = UILabel().then {
-        $0.font = .panton(size: 22, bold: .bold)
+        $0.font = .roboto(size: 22, bold: .bold)
         $0.textColor = .white
         $0.textAlignment = .center
         $0.sizeToFit()
@@ -65,7 +65,7 @@ class CategoryCell: UICollectionViewCell {
     func configureByViewModel() {
         titleLabel.text = viewModel?.title
         titleLabel.textColor = viewModel?.textColor
-        selectLine.backgroundColor = viewModel?.isSelected == false ? .reverie(1).withAlphaComponent(0.5) : .reverie(3)
+        selectLine.backgroundColor = viewModel?.isSelected == false ? .reverie(1).withAlphaComponent(0.5) : .reverie(2)
     }
     
     // MARK: - Helpers

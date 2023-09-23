@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearance.configureWithOpaqueBackground()
         navigationBarAppearance.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor : UIColor.black,
-            NSAttributedString.Key.font: UIFont.panton(size: 24, bold: .bold)!
+            NSAttributedString.Key.font: UIFont.roboto(size: 24, bold: .bold)!
         ]
         navigationBarAppearance.backgroundColor = UIColor.white
         navigationBarAppearance.shadowColor = .clear

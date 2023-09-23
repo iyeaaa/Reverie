@@ -8,8 +8,6 @@
 import UIKit
 import Then
 
-private let categoryHeaderIdentifier: String = "categoryHeader"
-
 protocol NewsPageCellMessageDelegate: AnyObject {
     func showMessage(_ message: String)
 }
@@ -25,7 +23,15 @@ class NewsListView: UIView {
     
     private var isLastPage: Bool = false
     
+    private var headline: Bool = true
+    
     var currentCategory: String = "General"
+    
+    weak var messageDelegate: NewsPageCellMessageDelegate?
+    
+    weak var openNewsDelegate: NewsPageCellOpenDelegate?
+    
+    // MARK: - Data Source
     
     private var newsList: [News] = [] {
         didSet {
@@ -35,10 +41,6 @@ class NewsListView: UIView {
         }
     }
     
-    weak var messageDelegate: NewsPageCellMessageDelegate?
-    
-    weak var openNewsDelegate: NewsPageCellOpenDelegate?
-    
     // MARK: - UI Properties
     
     private lazy var newsCollectionView = UICollectionView(
@@ -46,7 +48,6 @@ class NewsListView: UIView {
         collectionViewLayout: UICollectionViewFlowLayout().then {
             $0.itemSize = CGSize(width: UIScreen.main.bounds.width - 60, height: 80)
             $0.minimumLineSpacing = 20
-            $0.headerReferenceSize = CGSize(width: frame.width, height: 50)
             $0.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         }
     ).then {
@@ -57,7 +58,12 @@ class NewsListView: UIView {
         $0.register(
             CategoryHeader.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: categoryHeaderIdentifier
+            withReuseIdentifier: CategoryHeader.id
+        )
+        $0.register(
+            HeadLineViewHeader.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: HeadLineViewHeader.id
         )
         $0.dataSource = self
         $0.backgroundColor = .white
@@ -66,8 +72,9 @@ class NewsListView: UIView {
 
     // MARK: - Lifecycle
     
-    init(currentCategory: String) {
+    init(currentCategory: String, containsCategory: Bool) {
         self.currentCategory = currentCategory
+        self.headline = containsCategory
         
         super.init(frame: .zero)
         
@@ -131,11 +138,15 @@ extension NewsListView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(
             ofKind: kind,
-            withReuseIdentifier: categoryHeaderIdentifier,
+            withReuseIdentifier: headline ? HeadLineViewHeader.id : CategoryHeader.id,
             for: indexPath
-        ) as! CategoryHeader
-        header.delegate = self
-        header.seletedCategory = currentCategory
+        )
+        if let header = header as? HeadLineViewHeader {
+            header.category = currentCategory
+        } else if let header = header as? CategoryHeader {
+            header.delegate = self
+            header.seletedCategory = currentCategory
+        }
         return header
     }
 }
@@ -183,5 +194,19 @@ extension NewsListView: CategoryHeaderDelegate {
         currentCategory = selectedCategory
         currentPage = -1
         isLastPage = false
+    }
+}
+
+// MARK: - UICollectionView Delegate Flow Layout
+
+extension NewsListView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        let header = headline ? HeadLineViewHeader() : CategoryHeader()
+        let size = headline ? header.systemLayoutSizeFitting(
+            CGSize(width: UIScreen.main.bounds.width, height: UIView.layoutFittingCompressedSize.height),
+            withHorizontalFittingPriority: .required,
+            verticalFittingPriority: .fittingSizeLevel
+        ) : CGSize(width: UIScreen.main.bounds.width, height: 40)
+        return size
     }
 }

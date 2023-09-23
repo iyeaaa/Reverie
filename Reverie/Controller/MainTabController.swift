@@ -59,9 +59,8 @@ class MainTabController: UITabBarController {
         /* navigationContoller로 씌우고 tabbar 아이템 지정후 내보낸다 */
         func templateNavigationController(unselectedImage: UIImage, seletedImage: UIImage, rootViewController: UIViewController) -> UINavigationController {
             let nav = UINavigationController(rootViewController: rootViewController)
-            nav.tabBarItem.image = unselectedImage
-            nav.tabBarItem.selectedImage = seletedImage
-            nav.tabBarItem.title = nil
+            nav.tabBarItem.image = unselectedImage.withTintColor(.reverie(1), renderingMode: .alwaysOriginal)
+            nav.tabBarItem.selectedImage = seletedImage.withTintColor(.reverie(2), renderingMode: .alwaysOriginal)
             return nav
         }
         
@@ -71,19 +70,19 @@ class MainTabController: UITabBarController {
         let feed = templateNavigationController(
             unselectedImage: UIImage(systemName: "house")!,
             seletedImage: UIImage(systemName: "house.fill")!,
-            rootViewController: HomePageController()
+            rootViewController: HeadLineController()
         )
         
         let search = templateNavigationController(
-            unselectedImage: UIImage(systemName: "magnifyingglass.circle")!,
-            seletedImage: UIImage(systemName: "magnifyingglass.circle.fill")!,
-            rootViewController: SearchController()
+            unselectedImage: UIImage(systemName: "newspaper")!,
+            seletedImage: UIImage(systemName: "newspaper.fill")!,
+            rootViewController: NewsListController(initCategory: "General", headline: false)
         )
         
         let imageSelector = templateNavigationController(
-            unselectedImage: UIImage(systemName: "pencil.and.outline")!,
-            seletedImage: UIImage(systemName: "pencil.and.outline")!,
-            rootViewController: UploadThinkController()
+            unselectedImage: UIImage(systemName: "lightbulb.min")!,
+            seletedImage: UIImage(systemName: "lightbulb.min.fill")!,
+            rootViewController: ThinkListController()
         )
         
         let nofitications = templateNavigationController(
@@ -138,7 +137,7 @@ class MainTabController: UITabBarController {
                 
                 let controller = UploadThinkController()
 //                controller.selectedImage = selectedImage
-                controller.delegate = self
+//                controller.delegate = self
                 
                 let nav = UINavigationController(rootViewController: controller)
                 nav.modalPresentationStyle = .fullScreen
@@ -194,10 +193,10 @@ extension MainTabController: UITabBarControllerDelegate {
 
 // MARK: - UploadPostControllerDelegate
 
-extension MainTabController: UploadThinkControllerDelegate {
-    func contollerDidFinishuploadingThink(_ contoller: UploadThinkController) {
-        selectedIndex = 0
-        contoller.dismiss(animated: true)
-        fetchUser()
-    }
-}
+//extension MainTabController: UploadThinkControllerDelegate {
+//    func contollerDidFinishuploadingThink(_ contoller: UploadThinkController) {
+//        selectedIndex = 0
+//        contoller.dismiss(animated: true)
+//        fetchUser()
+//    }
+//}

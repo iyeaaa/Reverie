@@ -6,14 +6,12 @@
 	<string>want to save image</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Roboto-Bold.ttf</string>
+		<string>Roboto-Medium.ttf</string>
+		<string>Roboto-Regular.ttf</string>
 		<string>Panton-Trial-Regular.otf</string>
 		<string>Panton-Trial-SemiBold.otf</string>
 		<string>Panton-Trial-Bold.otf</string>
-		<string>Intro-Trial-BkAlt.otf</string>
-		<string>Intro-Trial-RgAlt.otf</string>
-		<string>BMHANNAProOTF.otf</string>
-		<string>강원교육모두 Light.otf</string>
-		<string>강원교육모두 Bold.otf</string>
 	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>

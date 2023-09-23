@@ -43,7 +43,7 @@ class NewsBottomSheetView: UIView {
     private lazy var coperationNameButton = UIButton().then {
         $0.setTitleColor(.black, for: .normal)
         $0.setTitle("venom", for: .normal)
-        $0.titleLabel?.font = .panton(size: 17, bold: .bold)
+        $0.titleLabel?.font = .roboto(size: 17, bold: .bold)
         $0.sizeToFit()
         $0.addTarget(self, action: #selector(didTapUsername), for: .touchUpInside)
     }
@@ -55,7 +55,7 @@ class NewsBottomSheetView: UIView {
     }
     
     private lazy var titleLabel = UILabel().then {
-        $0.font = .panton(size: 20, bold: .semibold)
+        $0.font = .roboto(size: 20, bold: .semibold)
         $0.textColor = .black
         $0.numberOfLines = 0
     }
@@ -94,14 +94,14 @@ class NewsBottomSheetView: UIView {
     
     private let captionLabel = UILabel().then {
         $0.textColor = .black
-        $0.font = .panton(size: 18, bold: .regular)
+        $0.font = .roboto(size: 18, bold: .regular)
         $0.lineBreakMode = .byCharWrapping
         $0.numberOfLines = 0
     }
     
     private let thinkTimeLabel = UILabel().then {
         $0.text = "2 days ago"
-        $0.font = .panton(size: 14, bold: .semibold)
+        $0.font = .roboto(size: 14, bold: .semibold)
         $0.textColor = .black
     }
     

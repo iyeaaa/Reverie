@@ -21,7 +21,7 @@ class NewsListCell: UICollectionViewCell {
     // MARK: - UI Porperties
     
     private lazy var titleLabel = UILabel().then {
-        $0.font = .panton(size: 16, bold: .semibold)
+        $0.font = .roboto(size: 16, bold: .semibold)
         $0.textColor = .black
         $0.numberOfLines = 0
         $0.sizeToFit()
@@ -36,7 +36,7 @@ class NewsListCell: UICollectionViewCell {
 
     private let captionLabel = UILabel().then {
         $0.textColor = .black
-        $0.font = UIFont.panton(size: 14, bold: .regular)
+        $0.font = UIFont.roboto(size: 14, bold: .regular)
         $0.numberOfLines = 0
         $0.textColor = .black
     }

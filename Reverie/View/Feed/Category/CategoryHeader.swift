@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 private let categoryCellIndentifer = "CategoryCell"
 
 protocol CategoryHeaderMessageDelegate: AnyObject {
@@ -21,6 +20,8 @@ protocol CategoryHeaderDelegate: AnyObject {
 class CategoryHeader: UICollectionReusableView {
     
     // MARK: - Properties
+    
+    static let id = "CategoryHeaderIdentifier"
     
     private let categoryList = ["General",
                                 "Business",
@@ -89,7 +90,7 @@ class CategoryHeader: UICollectionReusableView {
     func configureAutoLayout() {
         addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.edges.equalTo(self)
         }
     }
     
@@ -98,7 +99,7 @@ class CategoryHeader: UICollectionReusableView {
     func calculateWidth(_ text: String) -> CGFloat {
         return UILabel().then {
             $0.text = text
-            $0.font = .panton(size: 22, bold: .bold)
+            $0.font = .roboto(size: 22, bold: .bold)
         }.intrinsicContentSize.width
     }
 }

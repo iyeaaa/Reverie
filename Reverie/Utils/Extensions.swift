@@ -9,21 +9,17 @@ import UIKit
 import JGProgressHUD
 
 extension UIFont {
-    static func gangwon(size: CGFloat, bold: Bool = false) -> UIFont? {
-        UIFont(name: bold ? "GangwonEduAll-OTFBold" : "GangwonEduAll-OTFLight", size: size)
-    }
-    
-    enum PantonWeight: Int {
+    enum RobotoWeight: Int {
         case regular = 0
         case semibold = 1
         case bold = 2
     }
     
-    static func panton(size: CGFloat, bold: PantonWeight) -> UIFont? {
+    static func roboto(size: CGFloat, bold: RobotoWeight) -> UIFont? {
         switch bold {
-        case .regular: UIFont(name: "Panton-Trial-Regular", size: size)
-        case .semibold: UIFont(name: "Panton-Trial-SemiBold", size: size)
-        case .bold: UIFont(name: "Panton-Trial-Bold", size: size)
+        case .regular: UIFont(name: "Roboto-Regular", size: size)
+        case .semibold: UIFont(name: "Roboto-Medium", size: size)
+        case .bold: UIFont(name: "Roboto-Bold", size: size)
         }
     }
 }

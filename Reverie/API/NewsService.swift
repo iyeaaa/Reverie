@@ -32,7 +32,7 @@ struct NewsService {
             }
         }
         
-        func toNews() -> [News] {
+        func toNewsList() -> [News] {
             var newsList = [News]()
             for article in articles ?? [] {
                 newsList.append(News(id: article.source?.id,
@@ -75,7 +75,7 @@ struct NewsService {
                 return
             }
             
-            complete(jsonNews.toNews())
+            complete(jsonNews.toNewsList().filter{$0.title?.contains("Removed") == false})
         }.resume()
     }
 }
