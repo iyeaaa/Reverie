@@ -2,120 +2,59 @@
 //  ThinkListController.swift
 //  Reverie
 //
-//  Created by 이예인 on 9/21/23.
+//  Created by 이예인 on 9/30/23.
 //
 
-import UIKit
-import SnapKit
-import Then
+import SwiftUI
 
-class ThinkListController: UIViewController {
-    
-    // MARK: - Properties
-    // MARK: - UI Properties
-    
-    private lazy var writeButton = WriteButton().then {
-        $0.addTarget(self, action: #selector(didTapWriteButton), for: .touchUpInside)
-    }
-    
-    // MARK: - Lifecycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configure()
-        configureAutoLayout()
-    }
-    
-    // MARK: - Configures
-    
-    func configure() {
-        
-    }
-    
-    func configureAutoLayout() {
-        view.addSubview(writeButton)
-        writeButton.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.width.equalTo(120)
-            make.height.equalTo(40)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(15)
+struct ThinkListController: View {
+    var body: some View {
+        List {
+            Text("ㅋㅋ")
+            Text("ㅇㅇ")
+            Text("ㅇㅇ")
+            Text("ㅇㅇ")
         }
-    }
-    
-    // MARK: - Actions
-    
-    @objc func didTapWriteButton() {
-        let controller = UINavigationController(
-            rootViewController: UploadThinkController().then {
-                $0.delegate = self
+        .scrollContentBackground(.hidden)
+        .overlay(alignment: .bottom) {
+            Button {
+                
+            } label: {
+                HStack {
+                    Image(systemName: "pencil.and.outline")
+                        .bold()
+                    Text("Write")
+                        .bold()
+                }
+                .foregroundStyle(.black)
             }
-        )
-        controller.modalPresentationStyle = .fullScreen
-        present(controller, animated: true)
+            .padding(10)
+            .padding(.horizontal, 15)
+            .background(
+                Capsule(style: .continuous)
+                    .strokeBorder(Color(red: 180/255, green: 180/255, blue: 180/255), lineWidth: 1.5)
+                    .background(Capsule().fill(Color(red: 240/255, green: 241/255, blue: 242/255)))
+            )
+            .offset(y: -20)
+//            Button(action: {
+//                print("Button tapped!")
+//            }) {
+//                HStack {
+//                    Image(systemName: "pencil.and.outline")
+//                        .foregroundColor(.yellow)
+//                    Text("Label")
+//                        .fontWeight(.bold)
+//                        .font(.title)
+//                }
+//                .padding()
+//                .background(Color.blue)
+//                .foregroundColor(.white)
+//                .cornerRadius(10)
+//            }
+        }
     }
 }
 
-// MARK: - Upload Think Contoller Delegate
-
-extension ThinkListController: UploadThinkControllerDelegate {
-    func uploadThinkContollerDidDismissed(_ uploadThinkController: UploadThinkController) {
-        tabBarController?.tabBar.isHidden = false
-    }
-}
-
-
-// MARK: - Write Button
-
-private class WriteButton: UIButton {
-    private lazy var penImage = UIImageView().then {
-        $0.image = UIImage(systemName: "pencil.and.outline")
-        $0.tintColor = .reverie(2)
-        $0.isUserInteractionEnabled = false
-    }
-    private lazy var textLabel = UILabel().then {
-        $0.text = "Write"
-        $0.textColor = .reverie(3)
-        $0.font = .roboto(size: 20, bold: .bold)
-        $0.sizeToFit()
-        $0.isUserInteractionEnabled = false
-    }
-    private lazy var stackView = UIStackView(arrangedSubviews: [
-        penImage, textLabel
-    ]).then {
-        $0.spacing = 10
-        $0.axis = .horizontal
-        $0.alignment = .lastBaseline
-        $0.isUserInteractionEnabled = false
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
-        configure()
-        configureAutoLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func configure() {
-        backgroundColor = .systemGray6
-        layer.cornerRadius = 20
-        layer.borderColor = UIColor.lightGray.cgColor
-        clipsToBounds = true
-    }
-    
-    func configureAutoLayout() {
-        addSubview(stackView)
-        stackView.snp.makeConstraints { make in
-            make.center.equalTo(self)
-        }
-    }
-    
-    override var isHighlighted: Bool {
-        didSet {
-            super.isHighlighted = isHighlighted
-            backgroundColor = isHighlighted ? .systemGray3 : .systemGray6
-        }
-    }
+#Preview {
+    ThinkListController()
 }

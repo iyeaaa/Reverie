@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import YPImagePicker
+import SwiftUI
 
 class MainTabController: UITabBarController {
     
@@ -82,7 +83,7 @@ class MainTabController: UITabBarController {
         let imageSelector = templateNavigationController(
             unselectedImage: UIImage(systemName: "lightbulb.min")!,
             seletedImage: UIImage(systemName: "lightbulb.min.fill")!,
-            rootViewController: ThinkListController()
+            rootViewController: UIHostingController(rootView: ThinkListController())
         )
         
         let nofitications = templateNavigationController(

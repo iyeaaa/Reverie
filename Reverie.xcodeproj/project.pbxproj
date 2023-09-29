@@ -29,10 +29,11 @@
 		E136AE882AA6DEC80037F9FF /* Panton-Trial-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E136AE852AA6DEC80037F9FF /* Panton-Trial-Bold.otf */; };
 		E136AE8E2AA70BE30037F9FF /* HeadLineThinkCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E136AE8D2AA70BE30037F9FF /* HeadLineThinkCollectionCell.swift */; };
 		E136AE902AA70BF10037F9FF /* HeadLineCategoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E136AE8F2AA70BF10037F9FF /* HeadLineCategoryTableCell.swift */; };
+		E139BC032AC72632000EDFE0 /* ThinkListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E139BC022AC72632000EDFE0 /* ThinkListController.swift */; };
 		E13A99322ABBF9C900C02450 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E13A992F2ABBF93100C02450 /* Roboto-Bold.ttf */; };
 		E13A99332ABBF9CC00C02450 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E13A99302ABBF93100C02450 /* Roboto-Medium.ttf */; };
 		E13A99342ABBF9CF00C02450 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E13A99312ABBF93100C02450 /* Roboto-Regular.ttf */; };
-		E13A99392ABBFD7100C02450 /* ThinkListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13A99382ABBFD7100C02450 /* ThinkListController.swift */; };
+		E13A99392ABBFD7100C02450 /* ThinkListControllerBeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13A99382ABBFD7100C02450 /* ThinkListControllerBeta.swift */; };
 		E1401A562AA4500F004CC7FC /* PassThroughtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1401A552AA4500F004CC7FC /* PassThroughtView.swift */; };
 		E1401A592AA45318004CC7FC /* YPImagePicker in Frameworks */ = {isa = PBXBuildFile; productRef = E1401A582AA45318004CC7FC /* YPImagePicker */; };
 		E1401A5B2AA460DC004CC7FC /* NewsBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1401A5A2AA460DC004CC7FC /* NewsBottomSheetView.swift */; };
@@ -120,10 +121,11 @@
 		E136AE852AA6DEC80037F9FF /* Panton-Trial-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Panton-Trial-Bold.otf"; sourceTree = "<group>"; };
 		E136AE8D2AA70BE30037F9FF /* HeadLineThinkCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadLineThinkCollectionCell.swift; sourceTree = "<group>"; };
 		E136AE8F2AA70BF10037F9FF /* HeadLineCategoryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadLineCategoryTableCell.swift; sourceTree = "<group>"; };
+		E139BC022AC72632000EDFE0 /* ThinkListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkListController.swift; sourceTree = "<group>"; };
 		E13A992F2ABBF93100C02450 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		E13A99302ABBF93100C02450 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		E13A99312ABBF93100C02450 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
-		E13A99382ABBFD7100C02450 /* ThinkListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkListController.swift; sourceTree = "<group>"; };
+		E13A99382ABBFD7100C02450 /* ThinkListControllerBeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkListControllerBeta.swift; sourceTree = "<group>"; };
 		E1401A552AA4500F004CC7FC /* PassThroughtView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassThroughtView.swift; sourceTree = "<group>"; };
 		E1401A5A2AA460DC004CC7FC /* NewsBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsBottomSheetView.swift; sourceTree = "<group>"; };
 		E1481B3B2A8B57E600E82ED6 /* ThinkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkService.swift; sourceTree = "<group>"; };
@@ -384,7 +386,8 @@
 				E136AE892AA6E9D70037F9FF /* Think */,
 				E1FD6E8A2A8D185F007AD8B1 /* News */,
 				E15D34542A7FD9040026DFA6 /* SearchController.swift */,
-				E13A99382ABBFD7100C02450 /* ThinkListController.swift */,
+				E139BC022AC72632000EDFE0 /* ThinkListController.swift */,
+				E13A99382ABBFD7100C02450 /* ThinkListControllerBeta.swift */,
 				E19D8B9D2A8A2A0C003B21B0 /* UploadThinkController.swift */,
 				E15D34582A7FD91A0026DFA6 /* NotificationController.swift */,
 				E15D345A2A7FD92B0026DFA6 /* ProfileController.swift */,
@@ -565,6 +568,7 @@
 				E102A6E92A87DA19000F1C40 /* UserCell.swift in Sources */,
 				E15D34552A7FD9040026DFA6 /* SearchController.swift in Sources */,
 				E15D34372A7FC1E60026DFA6 /* AppDelegate.swift in Sources */,
+				E139BC032AC72632000EDFE0 /* ThinkListController.swift in Sources */,
 				E13690B82A97AFF8000C373D /* News.swift in Sources */,
 				E1BEC2012A85E39A00105AC6 /* User.swift in Sources */,
 				E1B24E6A2AB1D1AE00DD135F /* HomeCategoryTableCellViewModel.swift in Sources */,
@@ -594,7 +598,7 @@
 				E1BEC1FB2A85DBC500105AC6 /* UserService.swift in Sources */,
 				E1481B432A8B803900E82ED6 /* ThinkCellViewModel.swift in Sources */,
 				E126CD932A84AE94007B9CFC /* ProfileCell.swift in Sources */,
-				E13A99392ABBFD7100C02450 /* ThinkListController.swift in Sources */,
+				E13A99392ABBFD7100C02450 /* ThinkListControllerBeta.swift in Sources */,
 				E15D34392A7FC1E60026DFA6 /* SceneDelegate.swift in Sources */,
 				E1A030D92A91CC37003A74C0 /* NotificationCell.swift in Sources */,
 				E1AAF9702A80AF18005424FD /* RegistrationController.swift in Sources */,

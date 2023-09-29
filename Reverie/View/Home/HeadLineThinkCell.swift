@@ -42,17 +42,17 @@ class HeadLineThinkCell: UICollectionViewCell {
     }
     
     private let shadowTopView = UIGradientView(
-        gradientColors: [.black.withAlphaComponent(0.8), .clear],
+        gradientColors: [.black.withAlphaComponent(0.5), .black.withAlphaComponent(0.3), .clear],
         startPoint: CGPoint(x: 0.5, y: 0.0),
         endPoint: CGPoint(x: 0.5, y: 1.0),
-        location: [0, 1]
+        location: [0, 0.5, 1]
     )
     
     private let shadowBottomView = UIGradientView(
-        gradientColors: [.clear, .black.withAlphaComponent(0.8)],
-        startPoint: CGPoint(x: 0.5, y: 0.0),
-        endPoint: CGPoint(x: 0.5, y: 1.0),
-        location: [0, 1]
+        gradientColors: [.black.withAlphaComponent(0.5), .black.withAlphaComponent(0.3), .clear],
+        startPoint: CGPoint(x: 0.5, y: 1.0),
+        endPoint: CGPoint(x: 0.5, y: 0.0),
+        location: [0, 0.5, 1]
     )
     
     private let contentLabel = UILabel().then {

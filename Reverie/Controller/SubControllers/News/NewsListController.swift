@@ -72,6 +72,7 @@ final class NewsListController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
         navigationItem.title = "Latest News"
     }
     

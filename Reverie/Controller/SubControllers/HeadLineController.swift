@@ -125,10 +125,16 @@ extension HeadLineController: HeadLineCategoryTableCellDelegate {
     
     func openNewsList(category: String?) {
         guard let category = category else { return }
-        let contoller = NewsListController(initCategory: category, headline: true)
-        contoller.modalPresentationStyle = .fullScreen
-        contoller.delegate = self
-        present(contoller, animated: true)
+        present(
+            UINavigationController(
+                rootViewController: NewsListController(initCategory: category, headline: true).then {
+                    $0.delegate = self
+                }
+            ).then {
+                $0.modalPresentationStyle = .fullScreen
+            },
+            animated: true
+        )
     }
     
     func saveViewModelData(viewModel: HomeCategoryTableCellViewModel) {
