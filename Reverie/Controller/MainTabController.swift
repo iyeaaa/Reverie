@@ -83,8 +83,10 @@ class MainTabController: UITabBarController {
         let imageSelector = templateNavigationController(
             unselectedImage: UIImage(systemName: "lightbulb.min")!,
             seletedImage: UIImage(systemName: "lightbulb.min.fill")!,
-            rootViewController: UIHostingController(rootView: ThinkListController())
-        )
+            rootViewController: UIHostingController(rootView: ThinkListController(tabbarController: self))
+        ).then {
+            $0.navigationBar.isHidden = true
+        }
         
         let nofitications = templateNavigationController(
             unselectedImage: UIImage(systemName: "heart")!,

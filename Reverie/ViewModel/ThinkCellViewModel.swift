@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import SwiftUI
 
 struct ThinkCellViewModel {
+    
+    private var cacheImage: Image? = nil
     
     var think: Think
     

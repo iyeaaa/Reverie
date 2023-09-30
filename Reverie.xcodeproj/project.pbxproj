@@ -58,6 +58,7 @@
 		E179E4EC2A8F75E000155D7A /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E179E4EB2A8F75E000155D7A /* CommentService.swift */; };
 		E179E4EE2A8F809D00155D7A /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E179E4ED2A8F809D00155D7A /* Comment.swift */; };
 		E179E4F22A8F975F00155D7A /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E179E4F12A8F975F00155D7A /* CommentViewModel.swift */; };
+		E19368612AC8223D0068C09F /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19368602AC8223D0068C09F /* ImageCache.swift */; };
 		E19D8B942A8A14E9003B21B0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E19D8B932A8A14E9003B21B0 /* FirebaseAuth */; };
 		E19D8B962A8A14E9003B21B0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E19D8B952A8A14E9003B21B0 /* FirebaseFirestore */; };
 		E19D8B982A8A14E9003B21B0 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E19D8B972A8A14E9003B21B0 /* FirebaseFirestoreSwift */; };
@@ -148,6 +149,7 @@
 		E179E4EB2A8F75E000155D7A /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		E179E4ED2A8F809D00155D7A /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		E179E4F12A8F975F00155D7A /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
+		E19368602AC8223D0068C09F /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		E19D8B9B2A8A16A4003B21B0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E19D8B9D2A8A2A0C003B21B0 /* UploadThinkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadThinkController.swift; sourceTree = "<group>"; };
 		E19D8B9F2A8A34DB003B21B0 /* UITextViewWithPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewWithPlaceHolder.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 			children = (
 				E1AAF96A2A807BAE005424FD /* Extensions.swift */,
 				E1BEC1FE2A85DC3600105AC6 /* Constants.swift */,
+				E19368602AC8223D0068C09F /* ImageCache.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E19368612AC8223D0068C09F /* ImageCache.swift in Sources */,
 				E179E4F22A8F975F00155D7A /* CommentViewModel.swift in Sources */,
 				E1559C5E2A811B53003D45AA /* CustomTextField.swift in Sources */,
 				E126CD952A84AEA3007B9CFC /* ProfileHeader.swift in Sources */,
@@ -750,6 +754,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Reverie/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow us to access so you can make posts";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "want to save image";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Please allow us to access so you can make posts";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -780,6 +785,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Reverie/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow us to access so you can make posts";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "want to save image";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Please allow us to access so you can make posts";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
