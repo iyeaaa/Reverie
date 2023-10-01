@@ -35,6 +35,7 @@ struct RemoteImage: View {
         if let image = imageLoader.image {
             Image(uiImage: image)
                 .resizable()
+                .scaledToFill()
         } else {
             ProgressView()
         }
